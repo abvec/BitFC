@@ -6,6 +6,7 @@
 
     namespace bitfc {
 
+        /* basic rgb pixel */
         class RGBPixel {
 
             public :
@@ -20,6 +21,8 @@
 
         }; /* class RGBPixel */
 
+
+        /* basic rgba pixel */
         class RGBAPixel {
 
             RGBAPixel ();
@@ -33,6 +36,53 @@
             uint8_t a;
 
         }; /* class RGBAPixel */
+
+
+        /* AOS style pixel array */
+        class PixelArray {
+
+            public :
+
+            uint8_t * pixels;
+            uint32_t size;
+            uint32_t channels;
+
+        }; /* class PixelArray */
+
+        /* SOA style rgb pixel array */
+        class RGBPixelArray {
+
+            public :
+
+            struct {
+
+                uint8_t * r;
+                uint8_t * g;
+                uint8_t * b;
+
+            } pixels;
+
+            uint32_t size;
+
+        }; /* class RGBPixelArray */
+
+        /* SOA style rgba pixel array */
+        class RGBAPixelArray {
+
+            public :
+
+            struct {
+
+                uint8_t * r;
+                uint8_t * g;
+                uint8_t * b;
+                uint8_t * a;
+
+            } pixels;
+
+            uint32_t size;
+
+        }; /* class RGBAPixelArray */
 
     }; /* namespace bitfc */
 
