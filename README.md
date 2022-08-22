@@ -1,2 +1,2 @@
-# BitFCTR
-Bitmap font compiler / text renderer
+# BitFC
+Bitmap font compiler
