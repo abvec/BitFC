@@ -6,18 +6,19 @@
     #include <cstdint>
 
     #include "pixel.hpp"
+    #include "pixel_array.hpp"
 
     namespace bitfc {
 
-        struct BitmapFileHeader {
+        struct BitmapIdentHeader {
 
-            uint16_t file_identification;
+            uint16_t file_ident;
             uint32_t file_size;
             uint32_t reserved;
             uint32_t data_offset;
             uint32_t header_size;
 
-        }; /* struct BitmapFileHeader */
+        }; /* struct BitmapIdentHeader */
 
         struct BitmapDIB40Header {
 
@@ -34,23 +35,14 @@
 
         }; /* struct BitmapDIB40Header */
 
-        class Bitmap {
+        class BitmapFileHeader {
 
             public :
 
-            enum READ_ERROR {};
+            BitmapIdentHeader   ident_header;
+            BitmapDIB40Header   dib40_header;
 
-            enum WRITE_ERROR {};
-
-            struct {
-
-                BitmapFileHeader    bitmap_header;
-                BitmapDIB40Header   dib40_header;
-
-            } file_header;
-
-
-        }; /* class Bitmap */
+        }; /* class BitmapFileHeader */
 
     }; /* namespace bitfc */
 
