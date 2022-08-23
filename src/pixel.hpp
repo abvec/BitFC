@@ -25,6 +25,8 @@
         /* basic rgba pixel */
         class RGBAPixel {
 
+            public :
+
             RGBAPixel ();
             RGBAPixel ( uint8_t rgba );
             RGBAPixel ( RGBPixel rgb, uint8_t alpha );
