@@ -40,7 +40,17 @@
 
             public :
 
-            enum class VALIDATION_ERROR {
+            enum class GENERATE_ERROR {
+
+                NO_ERROR = 0,
+                IMAGE_WIDTH,
+                IMAGE_HEIGHT,
+                BITS_PER_PIXEL,
+                BITMAP_DATA_SIZE
+
+            }; /* enum class GENERATE_ERROR */
+
+            enum class VALIDATE_ERROR {
 
                 NO_ERROR = 0,
                 FILE_IDENT,
@@ -58,7 +68,7 @@
                 COLOR_PALETE,
                 IMPORTANT_COLORS,
 
-            }; /* enum class VALIDATION_ERROR */
+            }; /* enum class VALIDATE_ERROR */
 
             enum class READ_ERROR {
 
@@ -80,9 +90,11 @@
 
             }; /* enum class WRITE_ERROR */
 
+            GENERATE_ERROR generate_header ( );
+
             /* Validate header parameters. */
             /* Assumes header is correct if we can properly read and write using this library. */
-            VALIDATION_ERROR validate_header ( );
+            VALIDATE_ERROR validate_header ( );
 
             /* Read header from a file. Returns read error and how many bytes it manage to read. */
             FileIOReturn<READ_ERROR> read_header ( std::ifstream & file );
